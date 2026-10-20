@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: energy-building
+    runtime: node
+    plan: free
+    buildCommand: npm install --include=dev && npm run build
+    startCommand: npm start
+    envVars:
+      - key: NODE_VERSION
+        value: 20

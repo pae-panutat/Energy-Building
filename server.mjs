@@ -2,8 +2,8 @@
 import http from 'node:http';
 import {fileURLToPath} from 'node:url';
 import {createApi} from './backend/api.mjs';
-const port = Number(process.env.TWIN_PORT ?? 4173),
-  hostname = '127.0.0.1';
+const port = Number(process.env.PORT ?? process.env.TWIN_PORT ?? 4173),
+  hostname = process.env.HOST ?? (process.env.PORT ? '0.0.0.0' : '127.0.0.1');
 const api = createApi({port});
 let nextApp, handle;
 if (process.env.TWIN_API_ONLY !== '1') {
